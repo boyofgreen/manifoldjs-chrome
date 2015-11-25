@@ -1,0 +1,41 @@
+{
+  "name": "manifoldjs-chrome",
+  "version": "0.0.1",
+  "description": "Chrome platform implementation for manifoldjs",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/manifoldjs/manifoldjs-chrome.git"
+  },
+  "engines": {
+    "node": ">=0.12.0"
+  },
+  "engine-strict": true,
+  "author": {
+    "name": "TBD",
+    "email": "TBD",
+    "url": "TBD"
+  },
+  "license": "MIT",
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/manifoldjs/manifoldjs-chrome/blob/master/LICENSE.txt"
+    }
+  ],
+  "keywords": [
+    "convert manifest",
+    "manifest",
+    "W3C",
+    "Chrome",
+    "Manifold",
+    "ManifoldJS"
+  ],
+  "dependencies": {
+    
+  },
+  "devDependencies": {},
+  "bugs": {
+    "url": "https://github.com/manifoldjs/manifoldjs-chrome/issues"
+  },
+  "homepage": "https://github.com/manifoldjs/manifoldjs-chrome"
+}
