@@ -31,7 +31,8 @@
     "ManifoldJS"
   ],
   "dependencies": {
-    
+    "loglevel": "^1.4.0",
+    "manifoldjs-lib": "file:..\\manifoldjs-lib"
   },
   "devDependencies": {},
   "bugs": {
