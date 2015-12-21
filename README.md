@@ -1,2 +1,2 @@
 # manifoldjs-chrome
-Chrome platform implementation for manifoldjs
+ManifoldJS Chrome OS platform

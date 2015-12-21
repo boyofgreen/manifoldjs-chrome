@@ -1,7 +1,7 @@
 {
   "name": "manifoldjs-chrome",
   "version": "0.0.1",
-  "description": "Chrome platform implementation for manifoldjs",
+  "description": "Manifoldjs Chrome OS platform",
   "repository": {
     "type": "git",
     "url": "https://github.com/manifoldjs/manifoldjs-chrome.git"
@@ -26,15 +26,16 @@
     "convert manifest",
     "manifest",
     "W3C",
-    "Chrome",
     "Manifold",
-    "ManifoldJS"
+    "ManifoldJS",
+    "Chrome",
+    "Chrome OS"
   ],
   "dependencies": {
-    "loglevel": "^1.4.0",
-    "manifoldjs-lib": "file:..\\manifoldjs-lib"
+    "manifoldjs-lib": "git://github.com/manifoldjs/manifoldjs-lib.git"
   },
-  "devDependencies": {},
+  "devDependencies": {
+  },
   "bugs": {
     "url": "https://github.com/manifoldjs/manifoldjs-chrome/issues"
   },

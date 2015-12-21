@@ -1,1 +1,6 @@
-module.exports = require('./lib/platform');
+'use strict';
+
+module.exports = {
+  Platform: require('./lib/platform')
+};
+
