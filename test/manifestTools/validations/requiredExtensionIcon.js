@@ -1,8 +1,12 @@
 'use strict';
 
-var validation = require('../../../../lib/manifestTools/validationRules/chrome/requiredExtensionIcon');
-var validationConstants = require('../../../../lib/manifestTools/validationConstants');
 var should = require('should');
+
+var lib = require('manifoldjs-lib');
+var validationConstants = lib.constants.validation;
+
+var constants = require('../../../lib/constants'),  
+    validation = require('../../../lib/validationRules/requiredExtensionIcon');
 
 var requiredIconSizes = ['48x48'];
 var manifestWithRequiredIconSizes = [{sizes : '48x48'}];
@@ -10,10 +14,10 @@ var manifestWithRequiredIconSizes = [{sizes : '48x48'}];
 describe('Validation - Chrome', function () {
   describe('requiredExtensionIcon', function () {
     it('Should return a suggestion if manifest does not contains icons', function(done) {
-      validation({}, function(err, suggestion) {
+      validation({}, function(err, suggestion) {        
         should.not.exist(err);
         should.exist(suggestion);
-        suggestion.should.have.property('platform', validationConstants.platforms.chrome);
+        suggestion.should.have.property('platform', constants.platform.id);
         suggestion.should.have.property('level', validationConstants.levels.suggestion);
         suggestion.should.have.property('member', validationConstants.manifestMembers.icons);
         suggestion.should.have.property('code', validationConstants.codes.missingImage);
@@ -26,7 +30,7 @@ describe('Validation - Chrome', function () {
       validation({ icons: [] }, function(err, suggestion) {
         should.not.exist(err);
         should.exist(suggestion);
-        suggestion.should.have.property('platform', validationConstants.platforms.chrome);
+        suggestion.should.have.property('platform', constants.platform.id);
         suggestion.should.have.property('level', validationConstants.levels.suggestion);
         suggestion.should.have.property('member', validationConstants.manifestMembers.icons);
         suggestion.should.have.property('code', validationConstants.codes.missingImage);
@@ -39,7 +43,7 @@ describe('Validation - Chrome', function () {
       validation({ icons: [{sizes : '1x1'}] }, function(err, suggestion) {
         should.not.exist(err);
         should.exist(suggestion);
-        suggestion.should.have.property('platform', validationConstants.platforms.chrome);
+        suggestion.should.have.property('platform', constants.platform.id);
         suggestion.should.have.property('level', validationConstants.levels.suggestion);
         suggestion.should.have.property('member', validationConstants.manifestMembers.icons);
         suggestion.should.have.property('code', validationConstants.codes.missingImage);

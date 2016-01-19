@@ -1,8 +1,12 @@
 'use strict';
 
-var validation = require('../../../../lib/manifestTools/validationRules/chrome/requiredFavicon');
-var validationConstants = require('../../../../lib/manifestTools/validationConstants');
 var should = require('should');
+
+var lib = require('manifoldjs-lib');
+var validationConstants = lib.constants.validation;
+
+var constants = require('../../../lib/constants'),
+    validation = require('../../../lib/validationRules/requiredFavicon');
 
 var requiredIconSizes = ['16x16'];
 var manifestWithRequiredIconSizes = [{sizes : '16x16'}];
@@ -13,7 +17,7 @@ describe('Validation - Chrome', function () {
       validation({}, function(err, suggestion) {
         should.not.exist(err);
         should.exist(suggestion);
-        suggestion.should.have.property('platform', validationConstants.platforms.chrome);
+        suggestion.should.have.property('platform', constants.platform.id);
         suggestion.should.have.property('level', validationConstants.levels.suggestion);
         suggestion.should.have.property('member', validationConstants.manifestMembers.icons);
         suggestion.should.have.property('code', validationConstants.codes.missingImage);
@@ -26,7 +30,7 @@ describe('Validation - Chrome', function () {
       validation({ icons: [] }, function(err, suggestion) {
         should.not.exist(err);
         should.exist(suggestion);
-        suggestion.should.have.property('platform', validationConstants.platforms.chrome);
+        suggestion.should.have.property('platform', constants.platform.id);
         suggestion.should.have.property('level', validationConstants.levels.suggestion);
         suggestion.should.have.property('member', validationConstants.manifestMembers.icons);
         suggestion.should.have.property('code', validationConstants.codes.missingImage);
@@ -39,7 +43,7 @@ describe('Validation - Chrome', function () {
       validation({ icons: [{sizes : '1x1'}] }, function(err, suggestion) {
         should.not.exist(err);
         should.exist(suggestion);
-        suggestion.should.have.property('platform', validationConstants.platforms.chrome);
+        suggestion.should.have.property('platform', constants.platform.id);
         suggestion.should.have.property('level', validationConstants.levels.suggestion);
         suggestion.should.have.property('member', validationConstants.manifestMembers.icons);
         suggestion.should.have.property('code', validationConstants.codes.missingImage);

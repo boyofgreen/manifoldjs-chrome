@@ -1,12 +1,15 @@
 'use strict';
 
-var transformation = require('../../../lib/manifestTools/transformations/chromeos');
 var should = require('should');
 
-describe('transformation: ChromeOS Manifest', function () {
+var lib = require('manifoldjs-lib');
+
+var manifest = require('../../lib/manifest.js');
+
+describe('manifest: ChromeOS Manifest', function () {
   describe('convertFromBase()', function () {
     it('Should return an Error if manifest info is undefined', function(done) {
-      transformation.convertFromBase(undefined, function(err) {
+      manifest.convertFromBase(undefined, function(err) {
         should.exist(err);
         err.should.have.property('message', 'Manifest content is empty or not initialized.');
         done();
@@ -16,7 +19,7 @@ describe('transformation: ChromeOS Manifest', function () {
     it('Should return an Error if content property is undefined', function(done) {
       var originalManifest = { key: 'value' };
 
-      transformation.convertFromBase(originalManifest, function(err) {
+      manifest.convertFromBase(originalManifest, function(err) {
         should.exist(err);
         err.should.have.property('message', 'Manifest content is empty or not initialized.');
         done();
@@ -28,9 +31,9 @@ describe('transformation: ChromeOS Manifest', function () {
         content: {}
       };
 
-      transformation.convertFromBase(originalManifestInfo, function(err) {
+      manifest.convertFromBase(originalManifestInfo, function(err) {
         should.exist(err);
-        err.should.have.property('message', 'Start url is required.');
+        err.should.have.property('message', 'Start URL is required.');
         done();
       });
     });
@@ -48,12 +51,12 @@ describe('transformation: ChromeOS Manifest', function () {
         }
       };
 
-      transformation.convertFromBase(originalManifestInfo, function(err, result) {
+      manifest.convertFromBase(originalManifestInfo, function(err, result) {
         should.not.exist(err);
         should.exist(result);
         /*jshint -W030 */
         result.should.have.property('content').which.is.an.Object;
-        result.should.have.property('format', 'chromeos');
+        result.should.have.property('format', lib.constants.CHROME_MANIFEST_FORMAT);
 
         var manifest = result.content;
 
@@ -99,12 +102,12 @@ describe('transformation: ChromeOS Manifest', function () {
         }
       };
 
-      transformation.convertFromBase(originalManifestInfo, function(err, result) {
+      manifest.convertFromBase(originalManifestInfo, function(err, result) {
         should.not.exist(err);
         should.exist(result);
         /*jshint -W030 */
         result.should.have.property('content').which.is.an.Object;
-        result.should.have.property('format', 'chromeos');
+        result.should.have.property('format', lib.constants.CHROME_MANIFEST_FORMAT);
 
         var manifest = result.content;
         manifest.should.have.property('name', name);

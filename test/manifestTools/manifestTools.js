@@ -1,20 +1,23 @@
 'use strict';
 
-var utils = require('../../lib/common/utils');
 var should = require('should');
+
+var lib = require('manifoldjs-lib');
+
+var manifest = require('../../lib/manifest.js');
 
 describe('Manifest Tools', function () {
   describe('getManifestFromFile()', function () {
     it('Should return an Error if custom format convert return an error', function(done) {
       var manifestInfo = { content: { 'name': 'test' }, format: 'W3C' };
-      tools.convertTo(manifestInfo, 'chromeOS', function(err) {
+      manifest.convertFromBase(manifestInfo, function(err) {
         should.exist(err);
-        err.should.have.property('message', 'Start url is required.');
+        err.should.have.property('message', 'Start URL is required.');
         done();
       });
     });
 
-    it('Convert from W3C to chromeOS', function (done) {
+    it('Convert from W3C to chromeOS', function (done) { 
       var manifestInfo = {
         content: {
           'name': 'Google Mail',
@@ -49,10 +52,10 @@ describe('Manifest Tools', function () {
           },
           'manifest_version': 2
         },
-        format: 'chromeos'
+        format: lib.constants.CHROME_MANIFEST_FORMAT
       };
 
-      tools.convertTo(manifestInfo, 'chromeOS', function(err, result) {
+      manifest.convertFromBase(manifestInfo, function(err, result) {
         should.not.exist(err);
         result.should.be.eql(expectedManifestInfo);
         done();
