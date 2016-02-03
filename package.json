@@ -1,7 +1,7 @@
 {
   "name": "manifoldjs-chrome",
-  "version": "0.0.1",
-  "description": "Manifoldjs Chrome OS platform",
+  "version": "0.1.0",
+  "description": "ManifoldJS Chrome OS Platform",
   "repository": {
     "type": "git",
     "url": "https://github.com/manifoldjs/manifoldjs-chrome.git"
@@ -33,7 +33,7 @@
   ],
   "dependencies": {
     "q": "^1.4.1",
-    "manifoldjs-lib": "git://github.com/manifoldjs/manifoldjs-lib.git"
+    "manifoldjs-lib": "^0.1.0"
   },
   "devDependencies": {
     "blanket": "1.1.6",

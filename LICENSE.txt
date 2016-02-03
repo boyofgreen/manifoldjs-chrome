@@ -1,4 +1,4 @@
-ManifoldJS
+manifoldjs-chrome
 
 Copyright (c) Microsoft Corporation
 
